@@ -10,7 +10,7 @@ const create = async(req,res) => {
             success : true,
             message : "Successfully created a city",
             err : {}
-        })
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).send({
@@ -67,9 +67,9 @@ const update = async(req,res) => {
 // Get -> /city/:id
 const get = async(req,res) => {
     try {
-        const city = await cityService.getCity(req.id);
+        const city = await cityService.getCity(req.params.id);
         return res.status(201).json({
-            data:city,
+            data: city,
             success : true,
             message : "Successfully fetched the city",
             err : {}
