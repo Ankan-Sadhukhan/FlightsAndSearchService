@@ -1,4 +1,5 @@
 const {Flight} = require('../models/index');
+const {Op} = require('sequelize');
 
 class FlightRepository{
 
@@ -57,7 +58,7 @@ class FlightRepository{
     async getAllFlights(filter) {
         try {
             const filterObject = this.#createFilter(filter);
-            const flight = await Flights.findAll({
+            const flight = await Flight.findAll({
                 where: filterObject
             });
             return flight;
